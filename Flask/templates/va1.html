@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    form{
+                
+                font-style:italic;
+                font-size: 20px;
+                text-shadow: white;
+                text-decoration-color: white;
+                text-decoration: white;
+                color:black;
+            }
+             nav ul li {
+            display: inline-block;
+            padding: 0px 20px 5px 40px;
+        }
+
+        nav ul li a {
+            font-size: 60%;
+            text-decoration: none;
+            color: #8c34eb;
+            transition: 0.5s;
+        }
+        nav {
+            background: black;
+        }
+        body {
+ background-image: url("https://www.goodfreephotos.com/albums/united-states/new-york/new-york-city/skyline-of-new-york-from-across-the-river.jpg");
+ height: 100%;
+ width:100%;
+  background-position:unset ;
+}
+  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+<nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="topnav-right">
+          <ul class="nav navbar-nav">
+            <li<b><a href="/">Home</a></b></li>
+        </ul>
+        </div>
+        </div>
+      </nav>
+  <form action="/predict" method="POST" class="main-form needs-validation">
+  
+  <div class="row">
+      <div class="col">
+        <div class="form-group">
+        <label for="FULL_TIME_POSITION"><b>Enter Position</b></label>
+         <select name="FULL_TIME_POSITION" id="FULL_TIME_POSITION" class="form-control">
+            <option value="">Select application position</option>
+            <option value="1">YES(FULL-TIME)</option>    
+            <option value="0">NO(PART-TIME)</option>
+              </select>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form-group">
+          <label for="PREVAILING_WAGE"><b>Enter Prevailing Wage</b></label>
+          <input type="text" name="PREVAILING_WAGE" id="PREVAILING_WAGE" class="form-control is-invalid">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="YEAR"><b>Enter Application Year</b></label>
+          <input type="text" name="YEAR" id="YEAR" class="form-control is-invalid">
+        </div>
+      </div>
+      
+      <div class="col">
+        <div class="form-group">
+        <label for="SOC_NAME"><b>Enter Soc Name</b></label>
+         <select name="SOC_NAME" id="SOC_NAME" class="form-control">
+            <option value="">Select occupation code for the employment</option>
+                <option value="0">Education</option>
+                <option value="1">Administrative</option>
+             <option value="2">Others</option>
+            
+              </select>
+        </div>
+      </div>
+    </div>
+     
+
+    <center><button type="submit" class="btn btn-primary"><b>Predict</b></button></center>
+
+     <br>
+   <br>
+     <h1 align='center'>{{ prediction_text }}</h1>
+  </form>
+  
+</body>
+
+</html>
+
